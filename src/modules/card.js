@@ -11,7 +11,7 @@ function createCard(item) {
             <button data-id="${item.id}">
               <i class="fa fa-heart"></i>
             </button>
-            <span id="likes-${item.id}">counter</span>
+            <span id="likes-${item.id}">0</span>
           </div>
         </div>
         <div class="buttons">
@@ -20,7 +20,7 @@ function createCard(item) {
         </div>
       </div>
     </div>
-    `;
+  `;
 }
 
 export default createCard;
