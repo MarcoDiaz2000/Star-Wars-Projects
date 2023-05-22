@@ -1,6 +1,6 @@
 import './style.css';
-import { createCard } from './modules/card.js';
-import { fetchMovies } from './modules/apiTvmaze.js';
+import createCard from './modules/card.js';
+import fetchMovies from './modules/apiTvmaze.js';
 import logo from './images/logo2.png';
 
 const logoContainer = document.querySelector('.logo');
