@@ -1,4 +1,4 @@
-export function createCard(item) {
+function createCard(item) {
   return `
     <div class="col">
       <img src="${item.image.medium}" alt="${item.name}">  
