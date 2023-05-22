@@ -1,5 +1,5 @@
 export function createCard(item) {
-    return `
+  return `
     <div class="col">
       <img src="${item.image.medium}" alt="${item.name}">  
       <div class="col2">
@@ -21,4 +21,6 @@ export function createCard(item) {
       </div>
     </div>
     `;
-  }
+}
+
+export default createCard;

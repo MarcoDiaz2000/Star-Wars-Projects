@@ -1,5 +1,4 @@
 import './style.css';
-import _ from 'lodash';
 import { createCard } from './modules/card.js';
 import { fetchMovies } from './modules/apiTvmaze.js';
 import logo from './images/logo2.png';
@@ -12,9 +11,9 @@ logoContainer.appendChild(imgElement);
 
 const movieContainer = document.querySelector('.movies');
 
-fetchMovies().then(data => {
-  data.forEach(item => {
+fetchMovies().then((data) => {
+  data.forEach((item) => {
     const cardHTML = createCard(item.show);
     movieContainer.innerHTML += cardHTML;
-  })
-})
+  });
+});
