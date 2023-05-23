@@ -1,7 +1,9 @@
+import { getLikes, likeItem } from './modules/apiInvolvement.js';
 import './style.css';
 import createCard from './modules/card.js';
 import fetchMovies from './modules/apiTvmaze.js';
 import logo from './images/logo2.png';
+import commentsPopup from './modules/commentsPopup.js';
 
 const logoContainer = document.querySelector('.logo');
 const imgElement = document.createElement('img');
@@ -11,54 +13,49 @@ logoContainer.appendChild(imgElement);
 
 const movieContainer = document.querySelector('.movies');
 
+const likes = {};
+const userLikes = {}; // save user / likes
+
 fetchMovies().then((data) => {
-  data.forEach((item) => {
-    const cardHTML = createCard(item.show);
-    movieContainer.innerHTML += cardHTML;
-  });
-
-  // Comments popup
-  const commentsBtn = document.querySelectorAll('.comments-btn');
-  commentsBtn.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      data.forEach((item) => {
-        if (item.show.id.toString() === btn.id) {
-          const body = document.querySelector('body');
-          const main = document.createElement('div');
-          const closeBtn = document.createElement('button');
-          main.className = 'main';
-          closeBtn.className = 'close';
-          closeBtn.innerHTML = '<i class="fa-solid fa-xmark fa-xl"></i>';
-          const popup = document.createElement('div');
-          popup.className = 'popup';
-          popup.innerHTML = `
-          <div class="popup-items">
-            <img src="${item.show.image.medium}" alt="${item.show.name}">
-            <h2>${item.show.name}</h2>
-            <div class="details">
-              <div class="details-item">
-                <li>Language: ${item.show.language}</li>
-                <li>Premiered: ${item.show.premiered}</li>
-              </div>
-              <div class="details-item">
-                <li>Rating: ${item.show.rating.average}</li>
-                <li>Genre: ${item.show.genres}</li>
-              </div>
-            </div>
-            
-          </div>
-          `;
-          popup.appendChild(closeBtn);
-          main.appendChild(popup);
-          body.appendChild(main);
-
-          const close = document.querySelector('.close');
-          close.addEventListener('click', () => {
-            body.removeChild(main);
-          });
-        }
+  getLikes()
+    .then((likeData) => {
+      likeData.forEach((like) => {
+        likes[like.item_id] = like.likes;
       });
+
+      data.forEach((item) => {
+        const card = createCard(item.show, likes[item.show.id] || 0);
+        let blockLikes = false;
+
+        card
+          .querySelector(`button[data-id="${item.show.id}"]`)
+          .addEventListener('click', function clickListener() {
+            const heartIcon = this.querySelector('i');
+            if (!userLikes[item.show.id] && !blockLikes) {
+              blockLikes = true;
+              likeItem(item.show.id)
+                .then(() => {
+                  // increment counter likes
+                  likes[item.show.id] = (likes[item.show.id] || 0) + 1;
+                  card.querySelector(`#likes-${item.show.id}`).textContent = likes[item.show.id];
+                  userLikes[item.show.id] = true; // save user
+                  heartIcon.classList.remove('far');
+                  heartIcon.classList.add('fas');
+                  blockLikes = false;
+                })
+                .catch((error) => {
+                  console.error('Error liking item:', error); // at the end of the Project, this line will be removed.
+                });
+            } else {
+              alert('You have already liked this article.'); // Before the end of the project it will be replaced by other user-friendly notifications
+            }
+          });
+        movieContainer.appendChild(card);
+      });
+      // Comments popup
+      commentsPopup(data);
+    })
+    .catch((error) => {
+      console.error('Error getting likes:', error); // at the end of the Project, this line will be removed
     });
-  });
 });
