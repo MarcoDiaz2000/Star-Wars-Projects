@@ -15,8 +15,8 @@ function createCard(item) {
           </div>
         </div>
         <div class="buttons">
-          <button>Comments</button>
-          <button>Reservations</button>
+          <button class="comments-btn" id="${item.id}">Comments</button>
+          <button class="reserve-btn">Reservations</button>
         </div>
       </div>
     </div>
