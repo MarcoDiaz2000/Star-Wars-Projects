@@ -9,6 +9,18 @@ body {
   margin: 0 40px;
 }
 
+.main {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background: white;
+  padding: 20px;
+  border: #17494d solid;
+  overflow: auto;
+  z-index: 10;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -116,4 +128,50 @@ footer {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
   border: 2px solid #000;
   margin-top: 100px;
+}
+
+.popup {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-items {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.popup-items img {
+  width: 40%;
+  align-self: center;
+}
+
+.popup-items h2 {
+  align-self: center;
+}
+
+.popup .details {
+  display: flex;
+  flex-direction: row;
+  gap: 140px;
+}
+
+.popup .details .details-item {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.popup li {
+  font-weight: bolder;
+}
+
+.popup .close {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
