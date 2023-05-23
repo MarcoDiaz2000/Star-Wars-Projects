@@ -13,7 +13,7 @@ logoContainer.appendChild(imgElement);
 const movieContainer = document.querySelector('.movies');
 
 const likes = {};
-const userLikes = {}; // save likes
+const userLikes = {}; // save user / likes
 
 fetchMovies().then((data) => {
   getLikes().then((likeData) => {
@@ -44,6 +44,6 @@ fetchMovies().then((data) => {
       movieContainer.appendChild(card);
     });
   }).catch((error) => {
-    console.error('Error getting likes:', error); // at the end of the Project, this line will be removed.
+    console.error('Error getting likes:', error); // at the end of the Project, this line will be removed
   });
 });
