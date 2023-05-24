@@ -35,7 +35,22 @@ const commentsPopup = (data) => {
               
               
             </div>
-            
+            <div>
+              Add Comment
+              <form action="#" class="add-comment">
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" placeholder="Your Name" />
+                    </div>
+                    <div class="form-group">
+
+                        <input type="textarea" name="comment" id="comment" placeholder="Your Insight" />
+                        <small></small>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="add" id="add" value="Submit" />
+                    </div>
+                </form>
+            </div>
 
           </div>
         `;
@@ -56,6 +71,27 @@ const commentsPopup = (data) => {
               singleComment.innerHTML = `${mycomment.creation_date} ${mycomment.username}: ${mycomment.comment}`;
               commentList.appendChild(singleComment);
             });
+          });
+
+          const name = document.getElementById('name');
+          const comment = document.getElementById('comment');
+          const form = document.querySelector('.add-comment');
+
+          form.addEventListener('submit', async (e) => {
+            // const myStudent = new Student(name.value, score.value);
+            const msg = document.querySelector('small');
+
+            e.preventDefault();
+            // myStudent.storeStudent();
+
+            if (name.value && comment.value !== '') {
+              msg.innerText = '';
+              addComment(item.show.id, name.value, comment.value);
+            } else {
+              msg.innerText = '* name and comment required';
+            }
+
+            form.reset();
           });
         }
       });
