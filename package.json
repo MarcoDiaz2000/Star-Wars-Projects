@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "portfinder": "^1.0.32"
+    "portfinder": "^1.0.32",
+    "sweetalert": "^2.1.2"
   }
 }

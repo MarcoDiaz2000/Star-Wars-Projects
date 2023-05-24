@@ -44,9 +44,6 @@ fetchMovies().then((data) => {
                   heartIcon.classList.add('fas');
                   blockLikes = false;
                 })
-                .catch((error) => {
-                  console.error('Error liking item:', error); // at the end of the Project, this line will be removed.
-                });
             } else {
               alert('You have already liked this article.'); // Before the end of the project it will be replaced by other user-friendly notifications
             }
@@ -58,7 +55,4 @@ fetchMovies().then((data) => {
       // Comments popup
       commentsPopup(data);
     })
-    .catch((error) => {
-      console.error('Error getting likes:', error); // at the end of the Project, this line will be removed
-    });
 });

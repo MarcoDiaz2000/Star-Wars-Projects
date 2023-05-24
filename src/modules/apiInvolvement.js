@@ -19,9 +19,6 @@ function likeItem(itemId) {
       }
       return { success: true };
     })
-    .catch((error) => {
-      console.error('Error:', error); // at the end of the Project, this line will be removed.
-    });
 }
 
 // Gets the current "likes" from the API.
@@ -37,10 +34,6 @@ function getLikes() {
     })
     // If 'data' has a value, it parses to a JSON object. Otherwise, it returns an empty array.
     .then((data) => (data ? JSON.parse(data) : []))
-    .catch((error) => {
-      console.error('Error:', error); // at the end of the Project, this line will be removed.
-      return [];
-    });
 }
 
 export { likeItem, getLikes };
