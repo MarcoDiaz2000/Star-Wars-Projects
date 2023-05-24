@@ -10,7 +10,7 @@
 body {
   margin: 0 40px;
   font-family: 'Orbitron', sans-serif;
-  background: linear-gradient(to right, #000000, #0a192f);
+  background: linear-gradient(to right, #000, #0a192f);
 }
 
 .main {
@@ -98,7 +98,6 @@ body {
   height: 450px;
   overflow: hidden;
   transition: transform 0.8s ease;
-  padding: 15px;
 }
 
 .col:hover {
@@ -187,7 +186,7 @@ footer {
   border: 2px solid #000;
   margin-top: 100px;
   color: #63f5ff;
-  background: linear-gradient(to right, #000000, #0a192f);
+  background: linear-gradient(to right, #000, #0a192f);
 }
 
 .popup {
