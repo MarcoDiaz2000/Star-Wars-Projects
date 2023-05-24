@@ -1,9 +1,11 @@
+import Swal from 'sweetalert2';
 import { getLikes, likeItem } from './modules/apiInvolvement.js';
 import './style.css';
 import createCard from './modules/card.js';
 import fetchMovies from './modules/apiTvmaze.js';
 import logo from './images/logo2.png';
 import commentsPopup from './modules/commentsPopup.js';
+import cardCounter from './modules/cardCounter.js';
 
 const logoContainer = document.querySelector('.logo');
 const imgElement = document.createElement('img');
@@ -42,20 +44,20 @@ fetchMovies().then((data) => {
                   heartIcon.classList.remove('far');
                   heartIcon.classList.add('fas');
                   blockLikes = false;
-                })
-                .catch((error) => {
-                  console.error('Error liking item:', error); // at the end of the Project, this line will be removed.
                 });
             } else {
-              alert('You have already liked this article.'); // Before the end of the project it will be replaced by other user-friendly notifications
+              Swal.fire({
+                icon: 'info',
+                title: 'Notification',
+                text: 'You have already liked this article.',
+              });
             }
           });
         movieContainer.appendChild(card);
       });
+      // Movies counter on home page
+      document.getElementById('cardCounter').textContent = cardCounter(data);
       // Comments popup
       commentsPopup(data);
-    })
-    .catch((error) => {
-      console.error('Error getting likes:', error); // at the end of the Project, this line will be removed
     });
 });
