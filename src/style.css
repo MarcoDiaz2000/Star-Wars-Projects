@@ -175,3 +175,10 @@ footer {
   border: none;
   cursor: pointer;
 }
+
+.add-comment {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  gap: 10px;
+}
