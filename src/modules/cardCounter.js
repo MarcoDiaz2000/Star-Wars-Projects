@@ -1,5 +1,5 @@
-export function cardCounter(items) {
-    return items.length;
-  }
+function cardCounter(items) {
+  return items.length;
+}
 
-  export default cardCounter;
+export default cardCounter;
