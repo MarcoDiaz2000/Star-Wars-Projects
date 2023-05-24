@@ -79,23 +79,22 @@ const commentsPopup = (data) => {
             addGenre.appendChild(genreList);
           }
 
-          const prevComments = getComment(item.show.id).then((commentData) => {
-            commentData.forEach((mycomment) => {
+          getComment(item.show.id).then((commentData) => {
+            if (!commentData.error) {
+              commentData.forEach((mycomment) => {
+                const singleComment = document.createElement('p');
+
+                const commentList = document.querySelector('.comment-list');
+                singleComment.innerHTML = `${mycomment.creation_date} ${mycomment.username}: ${mycomment.comment}`;
+                commentList.appendChild(singleComment);
+              });
+            } else {
               const singleComment = document.createElement('p');
-
               const commentList = document.querySelector('.comment-list');
-              singleComment.innerHTML = `${mycomment.creation_date} ${mycomment.username}: ${mycomment.comment}`;
+              singleComment.innerHTML = 'Be the first one to comment';
               commentList.appendChild(singleComment);
-            });
+            }
           });
-
-          if (prevComments) {
-            const singleComment = document.createElement('p');
-
-            const commentList = document.querySelector('.comment-list');
-            singleComment.innerHTML = 'Be the first one to comment';
-            commentList.appendChild(singleComment);
-          }
 
           const name = document.getElementById('name');
           const comment = document.getElementById('comment');
@@ -110,18 +109,21 @@ const commentsPopup = (data) => {
 
             if (name.value && comment.value !== '') {
               msg.innerText = '';
-              if (addComment(item.show.id, name.value, comment.value)) {
+              const newComment = await addComment(
+                item.show.id,
+                name.value,
+                comment.value,
+              );
+              if (newComment) {
                 const commentList = document.querySelector('.comment-list');
                 commentList.innerHTML = '';
                 getComment(item.show.id).then((commentData) => {
-                  if (commentData) {
-                    commentData.forEach((mycomment) => {
-                      const singleComment = document.createElement('p');
+                  commentData.forEach((mycomment) => {
+                    const singleComment = document.createElement('p');
 
-                      singleComment.innerHTML = `${mycomment.creation_date} ${mycomment.username}: ${mycomment.comment}`;
-                      commentList.appendChild(singleComment);
-                    });
-                  }
+                    singleComment.innerHTML = `${mycomment.creation_date} ${mycomment.username}: ${mycomment.comment}`;
+                    commentList.appendChild(singleComment);
+                  });
                 });
               }
             } else {

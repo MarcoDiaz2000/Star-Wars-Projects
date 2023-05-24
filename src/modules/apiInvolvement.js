@@ -42,9 +42,7 @@ function getComment(itemId) {
 
   return (
     fetch(url)
-      .then((response) => {
-        response.json();
-      })
+      .then((response) => response.text())
       // If 'data' has a value, it parses to a JSON object. Otherwise, it returns an empty array.
       .then((data) => (data ? JSON.parse(data) : []))
   );
@@ -53,27 +51,22 @@ function getComment(itemId) {
 function addComment(itemId, username, comment) {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${APP_ID}/comments/`;
 
-  return (
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        item_id: itemId,
-        username,
-        comment,
-      }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('The API request failed');
-        }
-        return { success: true };
-      })
-      // If 'data' has a value, it parses to a JSON object. Otherwise, it returns an empty array.
-      .then((data) => (data ? JSON.parse(data) : []))
-  );
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      item_id: itemId,
+      username,
+      comment,
+    }),
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error('The API request failed');
+    }
+    return { success: true };
+  });
 }
 
 export {
