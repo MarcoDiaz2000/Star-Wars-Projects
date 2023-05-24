@@ -53,7 +53,7 @@ fetchMovies().then((data) => {
         movieContainer.appendChild(card);
       });
       // Movies counter on home page
-      document.getElementById('cardCounter').textContent = data.length; 
+      document.getElementById('cardCounter').textContent = data.length;
       // Comments popup
       commentsPopup(data);
     })
