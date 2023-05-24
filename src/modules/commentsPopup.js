@@ -1,4 +1,5 @@
 import { getComment, addComment } from './apiInvolvement.js';
+import commentCounter from './commentCounter.js';
 
 const commentsPopup = (data) => {
   const commentsBtn = document.querySelectorAll('.comments-btn');
@@ -31,7 +32,7 @@ const commentsPopup = (data) => {
               </div>
             </div>
             <div>
-              <h3>Comments</h3>
+              <h3 class="comment-counter"></h3>
               <div class="comment-list"></div>
               
               
@@ -83,15 +84,22 @@ const commentsPopup = (data) => {
             if (!commentData.error) {
               commentData.forEach((mycomment) => {
                 const singleComment = document.createElement('p');
+                const displayCounter = document.querySelector('.comment-counter');
+                const count = commentCounter(commentData);
+                displayCounter.innerHTML = `Comments (${count})`;
 
                 const commentList = document.querySelector('.comment-list');
                 singleComment.innerHTML = `${mycomment.creation_date} ${mycomment.username}: ${mycomment.comment}`;
+
                 commentList.appendChild(singleComment);
               });
             } else {
+              const displayCounter = document.querySelector('.comment-counter');
+              displayCounter.innerHTML = 'Comments';
               const singleComment = document.createElement('p');
               const commentList = document.querySelector('.comment-list');
               singleComment.innerHTML = 'Be the first one to comment';
+              commentList.appendChild(displayCounter);
               commentList.appendChild(singleComment);
             }
           });
