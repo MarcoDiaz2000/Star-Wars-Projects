@@ -18,9 +18,6 @@ function likeItem(itemId) {
         throw new Error('The API request failed');
       }
       return { success: true };
-    })
-    .catch((error) => {
-      console.error('Error:', error); // at the end of the Project, this line will be removed.
     });
 }
 
@@ -36,11 +33,7 @@ function getLikes() {
       return response.text();
     })
     // If 'data' has a value, it parses to a JSON object. Otherwise, it returns an empty array.
-    .then((data) => (data ? JSON.parse(data) : []))
-    .catch((error) => {
-      console.error('Error:', error); // at the end of the Project, this line will be removed.
-      return [];
-    });
+    .then((data) => (data ? JSON.parse(data) : []));
 }
 
 export { likeItem, getLikes };
