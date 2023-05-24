@@ -76,4 +76,6 @@ function addComment(itemId, username, comment) {
   );
 }
 
-export { likeItem, getLikes, getComment, addComment };
+export {
+  likeItem, getLikes, getComment, addComment,
+};
