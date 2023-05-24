@@ -18,7 +18,7 @@ function likeItem(itemId) {
         throw new Error('The API request failed');
       }
       return { success: true };
-    })
+    });
 }
 
 // Gets the current "likes" from the API.
@@ -33,7 +33,7 @@ function getLikes() {
       return response.text();
     })
     // If 'data' has a value, it parses to a JSON object. Otherwise, it returns an empty array.
-    .then((data) => (data ? JSON.parse(data) : []))
+    .then((data) => (data ? JSON.parse(data) : []));
 }
 
 export { likeItem, getLikes };

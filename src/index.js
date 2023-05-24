@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { getLikes, likeItem } from './modules/apiInvolvement.js';
 import './style.css';
 import createCard from './modules/card.js';
@@ -5,7 +6,6 @@ import fetchMovies from './modules/apiTvmaze.js';
 import logo from './images/logo2.png';
 import commentsPopup from './modules/commentsPopup.js';
 import cardCounter from './modules/cardCounter.js';
-import Swal from 'sweetalert2';
 
 const logoContainer = document.querySelector('.logo');
 const imgElement = document.createElement('img');
@@ -44,13 +44,14 @@ fetchMovies().then((data) => {
                   heartIcon.classList.remove('far');
                   heartIcon.classList.add('fas');
                   blockLikes = false;
-                })
+                });
             } else {
               Swal.fire({
                 icon: 'info',
                 title: 'Notification',
                 text: 'You have already liked this article.',
-              });            }
+              });
+            }
           });
         movieContainer.appendChild(card);
       });
@@ -58,5 +59,5 @@ fetchMovies().then((data) => {
       document.getElementById('cardCounter').textContent = cardCounter(data);
       // Comments popup
       commentsPopup(data);
-    })
+    });
 });
