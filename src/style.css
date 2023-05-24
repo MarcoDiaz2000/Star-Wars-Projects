@@ -110,11 +110,6 @@ body {
   max-height: 200px;
   border-radius: 4px;
   object-fit: cover;
-  /* transition: transform 0.3s ease; */
-}
-
-.col:hover img {
-  /* transform: scale(1.05); */
 }
 
 .col2 {
