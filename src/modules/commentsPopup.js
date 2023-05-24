@@ -26,7 +26,8 @@ const commentsPopup = (data) => {
               </div>
               <div class="details-item">
                 <li>Rating: ${item.show.rating.average}</li>
-                <li>Genre: ${item.show.genres}</li>
+                <ul class="genre">Genre: </ul>
+                 
               </div>
             </div>
             <div>
@@ -36,7 +37,8 @@ const commentsPopup = (data) => {
               
             </div>
             <div>
-              Add Comment
+            <h3>Add Comment</h3>
+              
               <form action="#" class="add-comment">
                     <div class="form-group">
                         <input type="text" name="name" id="name" placeholder="Your Name" />
@@ -61,6 +63,13 @@ const commentsPopup = (data) => {
           const close = document.querySelector('.close');
           close.addEventListener('click', () => {
             body.removeChild(main);
+          });
+
+          item.show.genres.forEach((genre) => {
+            const genreList = document.createElement('li');
+            genreList.innerHTML = `${genre} |`;
+            const addGenre = document.querySelector('.genre');
+            addGenre.appendChild(genreList);
           });
 
           getComment(item.show.id).then((commentData) => {
