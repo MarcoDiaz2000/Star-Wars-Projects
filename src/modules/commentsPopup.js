@@ -65,14 +65,21 @@ const commentsPopup = (data) => {
             body.removeChild(main);
           });
 
-          item.show.genres.forEach((genre) => {
+          if (item.show.genres.length !== 0) {
+            item.show.genres.forEach((genre) => {
+              const genreList = document.createElement('li');
+              genreList.innerHTML = `${genre} |`;
+              const addGenre = document.querySelector('.genre');
+              addGenre.appendChild(genreList);
+            });
+          } else {
             const genreList = document.createElement('li');
-            genreList.innerHTML = `${genre} |`;
+            genreList.innerHTML = 'N/A';
             const addGenre = document.querySelector('.genre');
             addGenre.appendChild(genreList);
-          });
+          }
 
-          getComment(item.show.id).then((commentData) => {
+          const prevComments = getComment(item.show.id).then((commentData) => {
             commentData.forEach((mycomment) => {
               const singleComment = document.createElement('p');
 
@@ -81,6 +88,14 @@ const commentsPopup = (data) => {
               commentList.appendChild(singleComment);
             });
           });
+
+          if (prevComments) {
+            const singleComment = document.createElement('p');
+
+            const commentList = document.querySelector('.comment-list');
+            singleComment.innerHTML = 'Be the first one to comment';
+            commentList.appendChild(singleComment);
+          }
 
           const name = document.getElementById('name');
           const comment = document.getElementById('comment');
@@ -99,12 +114,14 @@ const commentsPopup = (data) => {
                 const commentList = document.querySelector('.comment-list');
                 commentList.innerHTML = '';
                 getComment(item.show.id).then((commentData) => {
-                  commentData.forEach((mycomment) => {
-                    const singleComment = document.createElement('p');
+                  if (commentData) {
+                    commentData.forEach((mycomment) => {
+                      const singleComment = document.createElement('p');
 
-                    singleComment.innerHTML = `${mycomment.creation_date} ${mycomment.username}: ${mycomment.comment}`;
-                    commentList.appendChild(singleComment);
-                  });
+                      singleComment.innerHTML = `${mycomment.creation_date} ${mycomment.username}: ${mycomment.comment}`;
+                      commentList.appendChild(singleComment);
+                    });
+                  }
                 });
               }
             } else {

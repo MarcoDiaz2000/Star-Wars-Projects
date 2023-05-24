@@ -43,10 +43,7 @@ function getComment(itemId) {
   return (
     fetch(url)
       .then((response) => {
-        if (!response.ok) {
-          throw new Error('The API request failed');
-        }
-        return response.text();
+        response.json();
       })
       // If 'data' has a value, it parses to a JSON object. Otherwise, it returns an empty array.
       .then((data) => (data ? JSON.parse(data) : []))
