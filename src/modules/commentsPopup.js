@@ -86,7 +86,18 @@ const commentsPopup = (data) => {
 
             if (name.value && comment.value !== '') {
               msg.innerText = '';
-              addComment(item.show.id, name.value, comment.value);
+              if (addComment(item.show.id, name.value, comment.value)) {
+                const commentList = document.querySelector('.comment-list');
+                commentList.innerHTML = '';
+                getComment(item.show.id).then((commentData) => {
+                  commentData.forEach((mycomment) => {
+                    const singleComment = document.createElement('p');
+
+                    singleComment.innerHTML = `${mycomment.creation_date} ${mycomment.username}: ${mycomment.comment}`;
+                    commentList.appendChild(singleComment);
+                  });
+                });
+              }
             } else {
               msg.innerText = '* name and comment required';
             }
