@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,6 +9,8 @@
 
 body {
   margin: 0 40px;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(to right, #000000, #0a192f);
 }
 
 .main {
@@ -46,7 +50,8 @@ body {
 
 .navigation ul {
   display: flex;
-  gap: 20px;
+  gap: 40px;
+  font-weight: bold;
 }
 
 .navigation a {
@@ -62,12 +67,26 @@ body {
   padding: 100px;
 }
 
+.textbody h1 {
+  color: #63f5ff;
+  transition: transform 1.8s ease;
+}
+
+.textbody h1:hover {
+  transform: scale(1.45);
+}
+
+.textbody p {
+  color: #63f5ff;
+}
+
 .movies {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
   padding: 20px;
   justify-items: center;
+  margin: 15px;
 }
 
 .col {
@@ -78,6 +97,12 @@ body {
   width: 300px;
   height: 450px;
   overflow: hidden;
+  transition: transform 0.8s ease;
+  padding: 15px;
+}
+
+.col:hover {
+  transform: scale(1.05);
 }
 
 .col img {
@@ -85,6 +110,11 @@ body {
   max-height: 200px;
   border-radius: 4px;
   object-fit: cover;
+  /* transition: transform 0.3s ease; */
+}
+
+.col:hover img {
+  /* transform: scale(1.05); */
 }
 
 .col2 {
@@ -121,6 +151,39 @@ body {
   padding: 2px 10px;
   margin: 10px 0;
   text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+  background-color: #0a192f;
+}
+
+.buttons .comments-btn {
+  padding: 15px 20px;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #63f5ff;
+  background-color: #000;
+  border: 2px solid #63f5ff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+}
+
+.buttons .comments-btn:hover {
+  color: #000;
+  background-color: #63f5ff;
+}
+
+.buttons .comments-btn:focus {
+  outline: none;
+  box-shadow: 0 0 10px #63f5ff;
+}
+
+.buttons .comments-btn:active {
+  background-color: #007acc;
+  border-color: #007acc;
+  color: #fff;
 }
 
 footer {
@@ -128,6 +191,8 @@ footer {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
   border: 2px solid #000;
   margin-top: 100px;
+  color: #63f5ff;
+  background: linear-gradient(to right, #000000, #0a192f);
 }
 
 .popup {

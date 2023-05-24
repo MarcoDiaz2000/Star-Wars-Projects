@@ -18,7 +18,6 @@ function createCard(item, likes) {
       </div>
       <div class="buttons">
       <button class="comments-btn" id="${item.id}">Comments</button>
-        <button>Reservations</button>
       </div>
     </div>
   `;

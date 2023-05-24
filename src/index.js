@@ -45,9 +45,8 @@ fetchMovies().then((data) => {
             });
           } else {
             Swal.fire({
-              icon: 'info',
-              title: 'Notification',
-              text: 'You have already liked this article.',
+              title: 'Danger',
+              text: 'Giving more than one like is going to the dark side. don\'t do it.',
             });
           }
         });

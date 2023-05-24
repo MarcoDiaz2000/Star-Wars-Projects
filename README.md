@@ -1,6 +1,3 @@
-Hello, We are:
-- Marco Díaz
-- Biftu Girma
 
 <a name="readme-top"></a>
 
