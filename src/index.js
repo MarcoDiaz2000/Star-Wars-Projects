@@ -5,6 +5,7 @@ import fetchMovies from './modules/apiTvmaze.js';
 import logo from './images/logo2.png';
 import commentsPopup from './modules/commentsPopup.js';
 import cardCounter from './modules/cardCounter.js';
+import Swal from 'sweetalert2';
 
 const logoContainer = document.querySelector('.logo');
 const imgElement = document.createElement('img');
@@ -45,8 +46,11 @@ fetchMovies().then((data) => {
                   blockLikes = false;
                 })
             } else {
-              alert('You have already liked this article.'); // Before the end of the project it will be replaced by other user-friendly notifications
-            }
+              Swal.fire({
+                icon: 'info',
+                title: 'Notification',
+                text: 'You have already liked this article.',
+              });            }
           });
         movieContainer.appendChild(card);
       });
