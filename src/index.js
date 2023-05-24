@@ -4,6 +4,7 @@ import createCard from './modules/card.js';
 import fetchMovies from './modules/apiTvmaze.js';
 import logo from './images/logo2.png';
 import commentsPopup from './modules/commentsPopup.js';
+import cardCounter from './modules/cardCounter.js';
 
 const logoContainer = document.querySelector('.logo');
 const imgElement = document.createElement('img');
@@ -52,6 +53,8 @@ fetchMovies().then((data) => {
           });
         movieContainer.appendChild(card);
       });
+      // Movies counter on home page
+      document.getElementById('cardCounter').textContent = cardCounter(data);
       // Comments popup
       commentsPopup(data);
     })
