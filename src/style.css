@@ -145,7 +145,7 @@ footer {
 }
 
 .popup-items img {
-  width: 40%;
+  width: 30%;
   align-self: center;
 }
 
@@ -174,4 +174,17 @@ footer {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.add-comment {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  gap: 10px;
+}
+
+.genre {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
