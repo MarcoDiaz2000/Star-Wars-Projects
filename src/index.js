@@ -46,7 +46,7 @@ fetchMovies().then((data) => {
           } else {
             Swal.fire({
               title: 'Danger',
-              text: 'Giving more than one like is going to the dark side. don\'t do it.',
+              text: "Giving more than one like is going to the dark side. don't do it.",
             });
           }
         });
