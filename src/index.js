@@ -28,7 +28,7 @@ const fetchAndDisplayMovies = async () => {
     likes[like.item_id] = like.likes;
   });
 
-  for (const item of data) {
+  await Promise.all(data.map(async (item) => {
     const card = createCard(item.show, likes[item.show.id] || 0);
     let blockLikes = false;
 
@@ -54,11 +54,12 @@ const fetchAndDisplayMovies = async () => {
         }
       });
     movieContainer.appendChild(card);
-  }
+  }));
+
   // Movies counter on home page
   document.getElementById('cardCounter').textContent = cardCounter(data);
   // Comments popup
   commentsPopup(data);
-}
+};
 
 fetchAndDisplayMovies();
