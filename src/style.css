@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  margin: 0 40px;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(to right, #000, #0a192f);
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: white;
+  padding: 20px;
+  border: #17494d solid;
+  overflow: auto;
+  z-index: 10;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  position: sticky;
+  top: 0;
+  padding: 20px;
+  z-index: 10;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid #000;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+}
+
+.navigation ul {
+  display: flex;
+  gap: 40px;
+  font-weight: bold;
+}
+
+.navigation a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.textbody {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-items: center;
+  padding: 100px;
+}
+
+.textbody h1 {
+  color: #63f5ff;
+  transition: transform 1.8s ease;
+}
+
+.textbody h1:hover {
+  transform: scale(1.45);
+}
+
+.textbody p {
+  color: #63f5ff;
+}
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  justify-items: center;
+  margin: 15px;
+}
+
+.col {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  width: 300px;
+  height: 450px;
+  overflow: hidden;
+  transition: transform 0.8s ease;
+  margin: 20px 20px;
+}
+
+.col:hover {
+  transform: scale(1.05);
+}
+
+.col img {
+  width: 100%;
+  max-height: 250px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.col2 {
+  padding: 10px 0;
+}
+
+.titleAndLike {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.movieName {
+  flex: 8;
+}
+
+.like {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.buttons button {
+  padding: 2px 10px;
+  margin: 10px 0;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+  background-color: #0a192f;
+}
+
+.buttons .comments-btn {
+  padding: 15px 20px;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #63f5ff;
+  background-color: #000;
+  border: 2px solid #63f5ff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttons .comments-btn:hover {
+  color: #000;
+  background-color: #63f5ff;
+}
+
+.buttons .comments-btn:focus {
+  outline: none;
+  box-shadow: 0 0 10px #63f5ff;
+}
+
+.buttons .comments-btn:active {
+  background-color: #007acc;
+  border-color: #007acc;
+  color: #fff;
+}
+
+footer {
+  padding: 20px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid #000;
+  margin-top: 100px;
+  color: #63f5ff;
+  background: linear-gradient(to right, #000, #0a192f);
+}
+
+.popup {
+  font-family: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-items {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.popup-items img {
+  width: 30%;
+  align-self: center;
+}
+
+.popup-items h2 {
+  align-self: center;
+}
+
+.popup .details {
+  display: flex;
+  flex-direction: row;
+  gap: 140px;
+}
+
+.popup .details .details-item {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.popup li {
+  font-weight: bolder;
+}
+
+.popup .close {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.popup .conatiner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.popup .conatiner h3 {
+  align-self: center;
+}
+
+.popup #name {
+  font-family: inherit;
+  height: 30px;
+  border: #000 1px solid;
+}
+
+.popup #comment {
+  font-family: inherit;
+  border: #000 1px solid;
+}
+
+.popup #add {
+  font-family: inherit;
+  padding: 10px 20px;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 1rem;
+  color: #63f5ff;
+  background-color: #000;
+  border: 2px solid #63f5ff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup #add:hover {
+  color: #000;
+  background-color: #63f5ff;
+}
+
+.popup #add:focus {
+  outline: none;
+  box-shadow: 0 0 10px #63f5ff;
+}
+
+.popup #add:active {
+  background-color: #007acc;
+  border-color: #007acc;
+  color: #fff;
+}
+
+.add-comment {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  gap: 10px;
+}
+
+.genre {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    height: calc(100vh - 70px);
+    background: linear-gradient(to right, #000, #0a192f);
+    text-align: center;
+    transition: all 0.3s;
+    overflow: hidden;
+    line-height: 70px;
+  }
+
+  .navigation ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navigation a {
+    color: #63f5ff;
+    display: block;
+    padding: 0 60px;
+    transition: background 0.3s;
+  }
+
+  .navigation a:hover {
+    background: #555;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+#spaceship1,
+#spaceship2,
+#spaceship3 {
+  position: fixed;
+}
+
+#spaceship1 {
+  left: -150px;
+  animation: moveRight 30s linear infinite, fadeOut 2s linear 18s forwards;
+  bottom: 50%;
+}
+
+#spaceship2 {
+  left: -250px;
+  animation: moveRight 40s linear infinite, fadeOut 4s linear 18s forwards;
+  bottom: 55%;
+}
+
+#spaceship3 {
+  left: -350px;
+  animation: moveRight 60s linear infinite, fadeOut 6s linear 18s forwards;
+  bottom: 64%;
+}
+
+@keyframes moveRight {
+  0% {
+    left: -150px;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+#spaceship1 img {
+  width: 200px;
+  height: auto;
+}
+
+#spaceship2 img {
+  width: 70px;
+  height: auto;
+}
+
+#spaceship3 img {
+  width: 150px;
+  height: auto;
+}
