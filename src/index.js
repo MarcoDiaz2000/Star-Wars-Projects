@@ -37,7 +37,8 @@ fetchMovies().then((data) => {
             likeItem(item.show.id).then(() => {
               // increment counter likes
               likes[item.show.id] = (likes[item.show.id] || 0) + 1;
-              card.querySelector(`#likes-${item.show.id}`).textContent = likes[item.show.id];
+              card.querySelector(`#likes-${item.show.id}`).textContent =
+                likes[item.show.id];
               userLikes[item.show.id] = true; // save user
               heartIcon.classList.remove('far');
               heartIcon.classList.add('fas');
@@ -46,7 +47,7 @@ fetchMovies().then((data) => {
           } else {
             Swal.fire({
               title: 'Danger',
-              text: 'Giving more than one like is going to the dark side. don\'t do it.',
+              text: "Giving more than one like is going to the dark side. don't do it.",
             });
           }
         });
