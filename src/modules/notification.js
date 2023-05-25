@@ -16,7 +16,7 @@ function showNotification() {
       confirmButtonText: 'I want to help',
       confirmButtonAriaLabel: 'Thumbs up, great!',
     });
-  }, 18000);
+  }, 15000);
 }
 
 export default showNotification;
