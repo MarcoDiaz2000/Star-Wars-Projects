@@ -9,5 +9,5 @@ function mobileMenu() {
     }
   });
 }
-  
+
 export default mobileMenu;
