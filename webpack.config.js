@@ -42,7 +42,7 @@ module.exports = async () => {
           ],
         },
         {
-          test: /\.(mp4)$/i, // <-- Añade esta regla
+          test: /\.(mp4)$/i,
           use: [
             {
               loader: 'file-loader',
