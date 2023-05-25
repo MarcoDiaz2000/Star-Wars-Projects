@@ -1,5 +1,5 @@
 function mobileMenu() {
-  document.getElementById('menu-toggle').addEventListener('click', function () {
+  document.getElementById('menu-toggle').addEventListener('click', () => {
     const nav = document.getElementById('nav');
     const navigationLeft = getComputedStyle(nav).getPropertyValue('left');
     if (navigationLeft === '0px') {
@@ -9,5 +9,5 @@ function mobileMenu() {
     }
   });
 }
-
+  
 export default mobileMenu;
