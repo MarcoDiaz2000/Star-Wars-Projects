@@ -321,19 +321,23 @@ footer {
     overflow: hidden;
     line-height: 70px;
   }
+
   .navigation ul {
     width: 100%;
     flex-direction: column;
   }
+
   .navigation a {
     color: #63f5ff;
     display: block;
     padding: 0 60px;
     transition: background 0.3s;
   }
+
   .navigation a:hover {
     background: #555;
   }
+
   .menu-toggle {
     display: block;
   }
