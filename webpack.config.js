@@ -41,6 +41,17 @@ module.exports = async () => {
             },
           ],
         },
+        {
+          test: /\.(mp4)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].[ext]',
+              },
+            },
+          ],
+        },
       ],
     },
     optimization: {
