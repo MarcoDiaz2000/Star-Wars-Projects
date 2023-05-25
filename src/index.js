@@ -6,6 +6,50 @@ import fetchMovies from './modules/apiTvmaze.js';
 import logo from './images/logo2.png';
 import commentsPopup from './modules/commentsPopup.js';
 import cardCounter from './modules/cardCounter.js';
+import spaceship1 from './images/spaceship1.png';
+import spaceship2 from './images/spaceship2.png';
+import spaceship3 from './images/spaceship4.png';
+
+const spaceshipContainer1 = document.createElement('div');
+const spaceshipContainer2 = document.createElement('div');
+const spaceshipContainer3 = document.createElement('div');
+
+spaceshipContainer1.id = 'spaceship1';
+spaceshipContainer2.id = 'spaceship2';
+spaceshipContainer3.id = 'spaceship3';
+
+const spaceshipImg1 = document.createElement('img');
+const spaceshipImg2 = document.createElement('img');
+const spaceshipImg3 = document.createElement('img');
+
+spaceshipImg1.src = spaceship1;
+spaceshipImg2.src = spaceship2;
+spaceshipImg3.src = spaceship3;
+
+spaceshipContainer1.appendChild(spaceshipImg1);
+spaceshipContainer2.appendChild(spaceshipImg2);
+spaceshipContainer3.appendChild(spaceshipImg3);
+
+document.body.appendChild(spaceshipContainer1);
+document.body.appendChild(spaceshipContainer2);
+document.body.appendChild(spaceshipContainer3);
+
+setTimeout(() => {
+  Swal.fire({
+    title: 'Important message',
+    html: `
+    <div>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/CHmABI0MmkA?autoplay=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  `,
+  showCloseButton: true,
+  showCancelButton: true,
+  cancelButtonText: "Don't want to help",
+  showConfirmButton: true,
+  confirmButtonText: 'I want to help',
+  confirmButtonAriaLabel: 'Thumbs up, great!',
+  })
+}, 18000);
 
 document.getElementById('menu-toggle').addEventListener('click', function () {
   const nav = document.getElementById('nav');
