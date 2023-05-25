@@ -1,4 +1,4 @@
-function createCard(item, likes) {
+const createCard = (item, likes) => {
   const card = document.createElement('div');
   card.classList.add('col');
 

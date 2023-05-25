@@ -2,7 +2,7 @@ import spaceship1 from '../images/spaceship1.png';
 import spaceship2 from '../images/spaceship2.png';
 import spaceship3 from '../images/spaceship4.png';
 
-function createSpaceships() {
+const createSpaceships = () => {
   const spaceshipContainer1 = document.createElement('div');
   const spaceshipContainer2 = document.createElement('div');
   const spaceshipContainer3 = document.createElement('div');

@@ -5,4 +5,9 @@ describe('commentCounter', () => {
     const comments = [1, 2, 3, 4, 5];
     expect(commentCounter(comments)).toBe(5);
   });
+
+  test('should return the length comments', () => {
+    const comments = [];
+    expect(commentCounter(comments)).toBe(0);
+  });
 });

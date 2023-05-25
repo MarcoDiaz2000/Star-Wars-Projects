@@ -1,4 +1,4 @@
-function mobileMenu() {
+const mobileMenu = () => {
   document.getElementById('menu-toggle').addEventListener('click', () => {
     const nav = document.getElementById('nav');
     const navigationLeft = getComputedStyle(nav).getPropertyValue('left');

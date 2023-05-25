@@ -1,4 +1,4 @@
-function commentCounter(items) {
+const commentCounter = (items) => {
   return items.length;
 }
 

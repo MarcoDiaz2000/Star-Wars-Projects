@@ -1,4 +1,4 @@
-function cardCounter(items) {
+const cardCounter = (items) => {
   return items.length;
 }
 

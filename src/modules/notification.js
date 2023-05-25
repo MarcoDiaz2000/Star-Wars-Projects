@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
 import videoSrc from '../images/help.mp4';
 
-function showNotification() {
+const showNotification = () => {
   setTimeout(() => {
     Swal.fire({
       title: 'Important message',

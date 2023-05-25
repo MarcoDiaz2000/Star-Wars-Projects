@@ -1,7 +1,7 @@
 const APP_ID = 'FyW5dKnVlSNW1y3LtaAB';
 
 // Makes a POST request to "like" an item.
-function likeItem(itemId) {
+const likeItem = (itemId) => {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${APP_ID}/likes/`;
 
   return fetch(url, {
@@ -21,7 +21,7 @@ function likeItem(itemId) {
 }
 
 // Gets the current "likes" from the API.
-function getLikes() {
+const getLikes = () => {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${APP_ID}/likes/`;
 
   return (
@@ -37,7 +37,7 @@ function getLikes() {
   );
 }
 
-function getComment(itemId) {
+const getComment = (itemId) => {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${APP_ID}/comments?item_id=${itemId}`;
 
   return (
@@ -48,7 +48,7 @@ function getComment(itemId) {
   );
 }
 
-function addComment(itemId, username, comment) {
+const addComment = (itemId, username, comment) => {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${APP_ID}/comments/`;
 
   return fetch(url, {
