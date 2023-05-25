@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2';
+import videoSrc from '../images/help.mp4';
 
 function showNotification() {
   setTimeout(() => {
@@ -6,7 +7,10 @@ function showNotification() {
       title: 'Important message',
       html: `
         <div>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/CHmABI0MmkA?autoplay=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <video width="560" height="315" autoplay controls>
+            <source src="${videoSrc}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       `,
       showCloseButton: true,
