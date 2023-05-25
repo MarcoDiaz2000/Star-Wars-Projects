@@ -7,6 +7,16 @@ import logo from './images/logo2.png';
 import commentsPopup from './modules/commentsPopup.js';
 import cardCounter from './modules/cardCounter.js';
 
+document.getElementById('menu-toggle').addEventListener('click', function () {
+  const nav = document.getElementById('nav');
+  const navigationLeft = getComputedStyle(nav).getPropertyValue('left');
+  if (navigationLeft === '0px') {
+    nav.style.left = '-100%';
+  } else {
+    nav.style.left = '0px';
+  }
+});
+
 const logoContainer = document.querySelector('.logo');
 const imgElement = document.createElement('img');
 imgElement.src = logo;
