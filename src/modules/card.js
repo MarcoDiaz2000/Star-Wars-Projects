@@ -23,6 +23,6 @@ const createCard = (item, likes) => {
   `;
 
   return card;
-}
+};
 
 export default createCard;

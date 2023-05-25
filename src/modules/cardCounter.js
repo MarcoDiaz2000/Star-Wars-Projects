@@ -1,5 +1,3 @@
-const cardCounter = (items) => {
-  return items.length;
-}
+const cardCounter = (items) => items.length;
 
 export default cardCounter;

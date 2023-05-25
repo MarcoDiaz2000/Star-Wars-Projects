@@ -8,6 +8,6 @@ const mobileMenu = () => {
       nav.style.left = '0px';
     }
   });
-}
+};
 
 export default mobileMenu;

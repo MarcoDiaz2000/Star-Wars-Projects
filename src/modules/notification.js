@@ -21,6 +21,6 @@ const showNotification = () => {
       confirmButtonAriaLabel: 'Thumbs up, great!',
     });
   }, 12000);
-}
+};
 
 export default showNotification;

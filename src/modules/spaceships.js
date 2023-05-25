@@ -26,6 +26,6 @@ const createSpaceships = () => {
   document.body.appendChild(spaceshipContainer1);
   document.body.appendChild(spaceshipContainer2);
   document.body.appendChild(spaceshipContainer3);
-}
+};
 
 export default createSpaceships;

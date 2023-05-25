@@ -5,6 +5,6 @@ const insertLogo = () => {
   const imgElement = document.createElement('img');
   imgElement.src = logo;
   logoContainer.appendChild(imgElement);
-}
+};
 
 export default insertLogo;

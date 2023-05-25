@@ -18,7 +18,7 @@ const likeItem = (itemId) => {
     }
     return { success: true };
   });
-}
+};
 
 // Gets the current "likes" from the API.
 const getLikes = () => {
@@ -35,7 +35,7 @@ const getLikes = () => {
       // If 'data' has a value, it parses to a JSON object. Otherwise, it returns an empty array.
       .then((data) => (data ? JSON.parse(data) : []))
   );
-}
+};
 
 const getComment = (itemId) => {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${APP_ID}/comments?item_id=${itemId}`;
@@ -46,7 +46,7 @@ const getComment = (itemId) => {
       // If 'data' has a value, it parses to a JSON object. Otherwise, it returns an empty array.
       .then((data) => (data ? JSON.parse(data) : []))
   );
-}
+};
 
 const addComment = (itemId, username, comment) => {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${APP_ID}/comments/`;
@@ -67,7 +67,7 @@ const addComment = (itemId, username, comment) => {
     }
     return { success: true };
   });
-}
+};
 
 export {
   likeItem, getLikes, getComment, addComment,

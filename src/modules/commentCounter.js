@@ -1,5 +1,3 @@
-const commentCounter = (items) => {
-  return items.length;
-}
+const commentCounter = (items) => items.length;
 
 export default commentCounter;
