@@ -31,13 +31,13 @@ const commentsPopup = (data) => {
                  
               </div>
             </div>
-            <div>
+            <div class="conatiner">
               <h3 class="comment-counter"></h3>
               <div class="comment-list"></div>
               
               
             </div>
-            <div>
+            <div class="conatiner">
             <h3>Add Comment</h3>
               
               <form action="#" class="add-comment">
@@ -45,9 +45,8 @@ const commentsPopup = (data) => {
                         <input type="text" name="name" id="name" placeholder="Your Name" />
                     </div>
                     <div class="form-group">
-
-                        <input type="textarea" name="comment" id="comment" placeholder="Your Insight" />
-                        <small></small>
+                      <textarea id="comment" name="comment" rows="4" cols="30" placeholder="Your Insight"></textarea>
+                      <small></small>
                     </div>
                     <div class="form-group">
                         <input type="submit" name="add" id="add" value="Submit" />
@@ -59,11 +58,13 @@ const commentsPopup = (data) => {
         `;
           popup.appendChild(closeBtn);
           main.appendChild(popup);
+          body.style.overflow = 'hidden';
           body.appendChild(main);
 
           const close = document.querySelector('.close');
           close.addEventListener('click', () => {
             body.removeChild(main);
+            body.style.overflow = 'visible';
           });
 
           if (item.show.genres.length !== 0) {

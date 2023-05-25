@@ -18,6 +18,7 @@ body {
   height: 100%;
   position: fixed;
   top: 0;
+  right: 0;
   background: white;
   padding: 20px;
   border: #17494d solid;
@@ -162,6 +163,7 @@ body {
   border: 2px solid #63f5ff;
   transition: background-color 0.3s ease, color 0.3s ease;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .buttons .comments-btn:hover {
@@ -190,9 +192,9 @@ footer {
 }
 
 .popup {
+  font-family: inherit;
   display: flex;
   flex-direction: row;
-  gap: 100px;
   justify-content: center;
   align-items: center;
 }
@@ -235,6 +237,57 @@ footer {
   cursor: pointer;
 }
 
+.popup .conatiner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.popup .conatiner h3 {
+  align-self: center;
+}
+
+.popup #name {
+  font-family: inherit;
+  height: 30px;
+  border: #000 1px solid;
+}
+
+.popup #comment {
+  font-family: inherit;
+  border: #000 1px solid;
+}
+
+.popup #add {
+  font-family: inherit;
+  padding: 10px 20px;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 1rem;
+  color: #63f5ff;
+  background-color: #000;
+  border: 2px solid #63f5ff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup #add:hover {
+  color: #000;
+  background-color: #63f5ff;
+}
+
+.popup #add:focus {
+  outline: none;
+  box-shadow: 0 0 10px #63f5ff;
+}
+
+.popup #add:active {
+  background-color: #007acc;
+  border-color: #007acc;
+  color: #fff;
+}
+
 .add-comment {
   display: flex;
   flex-direction: column;
@@ -245,6 +298,7 @@ footer {
 .genre {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
