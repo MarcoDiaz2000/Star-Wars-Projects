@@ -301,3 +301,101 @@ footer {
   flex-wrap: wrap;
   gap: 10px;
 }
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    height: calc(100vh - 70px);
+    background: linear-gradient(to right, #000, #0a192f);
+    text-align: center;
+    transition: all 0.3s;
+    overflow: hidden;
+    line-height: 70px;
+  }
+
+  .navigation ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navigation a {
+    color: #63f5ff;
+    display: block;
+    padding: 0 60px;
+    transition: background 0.3s;
+  }
+
+  .navigation a:hover {
+    background: #555;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+#spaceship1,
+#spaceship2,
+#spaceship3 {
+  position: fixed;
+  bottom: 50%;
+}
+
+#spaceship1 {
+  left: -150px;
+  animation: moveRight 30s linear infinite, fadeOut 2s linear 18s forwards;
+}
+
+#spaceship2 {
+  left: -250px;
+  animation: moveRight 40s linear infinite, fadeOut 4s linear 18s forwards;
+}
+
+#spaceship3 {
+  left: -350px;
+  animation: moveRight 60s linear infinite, fadeOut 6s linear 18s forwards;
+}
+
+@keyframes moveRight {
+  0% {
+    left: -150px;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+#spaceship1 img {
+  width: 200px;
+  height: auto;
+}
+
+#spaceship2 img {
+  width: 70px;
+  height: auto;
+}
+
+#spaceship3 img {
+  width: 150px;
+  height: auto;
+}

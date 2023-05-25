@@ -1,17 +1,19 @@
 import Swal from 'sweetalert2';
+import createSpaceships from './modules/spaceships.js';
+import showNotification from './modules/notification.js';
+import mobileMenu from './modules/mobileMenu.js';
+import insertLogo from './modules/insertLogo.js';
 import { getLikes, likeItem } from './modules/apiInvolvement.js';
 import './style.css';
 import createCard from './modules/card.js';
 import fetchMovies from './modules/apiTvmaze.js';
-import logo from './images/logo2.png';
 import commentsPopup from './modules/commentsPopup.js';
 import cardCounter from './modules/cardCounter.js';
 
-const logoContainer = document.querySelector('.logo');
-const imgElement = document.createElement('img');
-imgElement.src = logo;
-
-logoContainer.appendChild(imgElement);
+createSpaceships();
+showNotification();
+insertLogo();
+mobileMenu();
 
 const movieContainer = document.querySelector('.movies');
 
